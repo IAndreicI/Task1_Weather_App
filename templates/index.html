@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task 1</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="navbar_container">
+            <a href="/" class="navbar_button">Home 🏠︎ </a>
+            <a href="/database" class="navbar_button">History ⏱</a>
+        </div>
+    </nav>
+
+    
+    <div class="content_container">
+        <h1>Weather Forecast 🌦️</h1>
+        <p>Enter the name of a city:</p>
+        <form method="POST">
+            <input type="text" name="city" placeholder="City Name" required>
+            <button type="submit">Submit</button>
+        </form>
+        {% if data_fw == "Error" %}
+        <p>City is invalid</p>
+        {% elif data_fw == None %}
+        <p></p>
+        {% else %}
+        <p>Results for {{data_fw["location"]["name"]}}, {{data_fw["location"]["country"]}}:</p>
+        {% for i in data_fw["forecast"]["forecastday"] %}
+        <p>{{i["date"]}}</p>
+        <table>
+            <tr>
+                <th>Min Temp❄️</th>
+                <th>Max Temp🔥</th>
+                <th>Precipitation🌧️</th>
+                <th>Sunrise Hour🌞</th>
+                <th>Sunset Hour🌙</th>
+                <th>Max Wind💨</th>
+              </tr>
+              <tr>
+                <td>{{i["day"]["mintemp_c"]}}°</td>
+                <td>{{i["day"]["maxtemp_c"]}}°</td>
+                <td>{{i["day"]["totalprecip_mm"]}}%</td>
+                <td>{{i["astro"]["sunrise"]}}</td>
+                <td>{{i["astro"]["sunset"]}}</td>
+                <td>{{i["day"]["maxwind_kph"]}}km/h</td>  
+              </tr>
+        </table>
+        {% endfor %}
+        {% endif %}
+    </div>
+</body>
+</html>

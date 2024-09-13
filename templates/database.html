@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task 1</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="navbar_container">
+            <a href="/" class="navbar_button">Home 🏠︎ </a>
+            <a href="/database" class="navbar_button">History ⏱ </a>
+        </div>
+    </nav>
+
+    
+    <div class="content">
+        <p>History: </p>
+        {% for i in history %}
+        <p>{{i.date}}, {{i.city}}, {{i.country}}</p>
+        <table>
+            <tr>
+                <th>Min Temp❄️</th>
+                <th>Max Temp🔥</th>
+                <th>Precipitation🌧️</th>
+                <th>Sunrise Hour🌞</th>
+                <th>Sunset Hour🌙</th>
+                <th>Max Wind💨</th>
+              </tr>
+              <tr>
+                <td>{{i.min_temp}}°</td>
+                <td>{{i.max_temp}}°</td>
+                <td>{{i.precipitation}}%</td>
+                <td>{{i.sunrise}}</td>
+                <td>{{i.sunset}}</td>
+                <td>{{i.wind}}km/h</td>  
+              </tr>
+        </table>
+        {% endfor %}
+    </div>
+</body>
+</html>

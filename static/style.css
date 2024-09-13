@@ -1,0 +1,100 @@
+
+.navbar {
+    background-color: #4b4b4b;
+    overflow: hidden;
+}
+
+.navbar_container {
+    display: flex;
+    justify-content: flex-start;
+    padding: 14px 20px;
+    width: 100%;
+}
+
+.navbar_button {
+    color: white;
+    text-align: center;
+    padding: 14px 20px;
+    text-decoration: none;
+    font-size: 17px;
+    margin-right: 20px;
+    transition: color 0.3s ease;
+    transition-delay: 0.1s; 
+    
+}
+
+.navbar_button:hover {
+    color: #67b1ff;  
+    
+    
+}
+
+
+.content_container {
+    padding: 20px;
+    font-family: Arial, sans-serif;
+    text-align:left;
+}
+
+h1 {
+    font-size: 36px;
+    color: rgba(0, 0, 0, 0.808);
+    text-align:center;
+    padding-bottom:2%;
+}
+
+p {
+    
+    font-size: 18px;
+}
+
+form {
+   
+    margin-bottom: 20px;
+    padding-bottom: 1%;
+    
+}
+
+input[type="text"] {
+    width: 300px;
+    padding: 10px;
+    margin-right: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    height: 23px ;
+}
+
+button {
+    padding: 15px 20px;
+    background-color: #67b1ff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+
+table {
+    font-family: arial, sans-serif;
+    border-collapse: collapse;
+    width: 900px;
+  }
+  
+  td, th {
+    border: 1px solid #dddddd;
+    text-align: left;
+    padding: 8px;
+    text-align: center;
+  }
+  
+  @media screen and (max-width: 900px) {
+    table {
+      width: 100%; 
+    }
+    .content_container{
+        text-align: center;
+    }
+}
